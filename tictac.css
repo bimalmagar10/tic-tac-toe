@@ -1,0 +1,104 @@
+* {
+	margin:0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body {
+	
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    font-family: sans-serif;
+}
+#btn {
+	background: #000;
+	color: #fff;
+	margin-bottom: 40px;
+	padding: 10px;
+	border-radius: 8px;
+	cursor: pointer;
+	outline: none;
+}
+#btn:hover {
+	opacity: 0.6;
+}
+body[data-light-mode = "dark"]{
+	background: #000;
+	color:#fff;
+}
+body[data-light-mode ="dark"] .container {
+	background: #fff;
+
+}
+body[data-light-mode ="dark"] .container .item {
+    background: #000;
+}
+body[data-light-mode = "dark"] .winner span{
+  color: #000;
+}
+
+.container {
+	display: grid;
+	grid-template-columns: repeat(3,1fr);
+	background: #000;
+	width: 500px;
+	height: 500px;
+	grid-gap: 5px;
+}
+.container .item {
+	background: white;
+	position: relative;
+    cursor: pointer;
+}
+.container .item:before {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left:0;
+	right:0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 5rem;
+	font-weight: 800;
+	
+}
+.container .item.x:before {
+	content: "X";
+}
+.container .item.o:before {
+	content:"O";
+}
+.winner {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	height: 200px;
+	width: 400px;
+	border-radius: 25px;
+	background-color: #aaa;
+	animation: animation .2s linear;
+	z-index: 3;
+}
+.winner button {
+	background-color: #053242;
+	color: #fff;
+	width: 70px;
+	height: 30px;
+	margin-top: 10px;
+    outline:none;
+
+}
+@keyframes animation {
+	from{
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
